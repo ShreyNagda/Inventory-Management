@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="600.0" minHeight="-Infinity" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.inventorymanagement.HomeController">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #50c878;">
+         <children>
+            <Label fx:id="usernameLabel" prefHeight="25.0" prefWidth="212.0" text="Hello">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#homeClick" prefWidth="180.0" text="Home" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
+            <Button fx:id="productBtn" layoutX="20.0" layoutY="60.0" mnemonicParsing="false" onAction="#productClick" prefWidth="180.0" text="Products" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0" />
+            <Button fx:id="orderBtn" mnemonicParsing="false" onAction="#orderClick" text="Orders" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="150.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="home" layoutX="210.0" prefHeight="400.0" prefWidth="391.0" visible="false" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="182.0" layoutY="191.0" text="Home" />
+         </children></AnchorPane>
+      <AnchorPane fx:id="productPane" layoutX="210.0" layoutY="-2.0" prefHeight="400.0" prefWidth="391.0">
+         <children>
+            <Label layoutX="182.0" layoutY="192.0" text="Products" />
+            <TableView fx:id="productTable" editable="true" prefHeight="350.0" prefWidth="391.0" AnchorPane.bottomAnchor="41.0" AnchorPane.topAnchor="0.0">
+               <columns>
+                  <TableColumn fx:id="productId" editable="false" prefWidth="75.0" resizable="false" text="ID" />
+                  <TableColumn fx:id="productName" onEditCommit="#editName" prefWidth="164.33331298828125" resizable="false" text="Name" />
+                  <TableColumn fx:id="productPrice" onEditCommit="#editPrice" prefWidth="75.0" resizable="false" text="Price" />
+                  <TableColumn fx:id="productStock" onEditCommit="#editStock" prefWidth="75.0" resizable="false" text="Stock" />
+               </columns>
+            </TableView>
+            <AnchorPane layoutY="360.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Button alignment="CENTER" layoutX="196.0" layoutY="5.333333492279053" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #50c878;" text="Add Product" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
+                  <Button alignment="CENTER" layoutX="96.0" layoutY="5.333333492279053" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: red;" text="Delete Selected Product" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="ordersPane" prefHeight="400.0" prefWidth="391.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="211.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="182.0" layoutY="192.0" text="Orders" />
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
