@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox prefWidth="600.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.inventorymanagement.LoginController">
+<HBox prefWidth="600.0" style="-fx-background-color: #252525;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.inventorymanagement.LoginController">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="180.0" style="-fx-background-color: #50c878;">
          <children>
@@ -22,7 +22,7 @@
             </Label>
             <Label alignment="CENTER" layoutX="40.0" layoutY="340.0" prefWidth="100.0" text="Shrey, Varad, Sapna, Harsh" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
                <font>
-                  <Font name="Calibri" size="12.0" />
+                  <Font name="Berlin Sans FB" size="12.0" />
                </font>
             </Label>
             <Label alignment="CENTER" layoutX="40.0" layoutY="320.0" prefWidth="100.0" text="By" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">

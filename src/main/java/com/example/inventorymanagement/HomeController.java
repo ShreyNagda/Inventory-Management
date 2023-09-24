@@ -2,107 +2,92 @@ package com.example.inventorymanagement;
 
 import com.example.inventorymanagement.database.ProductDao;
 import com.example.inventorymanagement.models.Product;
+import com.example.inventorymanagement.utils.ScreenUtils;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.paint.Color;
-import javafx.util.converter.IntegerStringConverter;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import static com.example.inventorymanagement.App.user;
 
 public class HomeController implements Initializable {
-    public Label usernameLabel;
-    public AnchorPane home, productPane;
-    public Button homeBtn;
-    public Button productBtn;
-    public Button orderBtn;
-    public AnchorPane ordersPane;
-    @FXML
-    private TableView<Product> productTable;
-    public TableColumn<Product, Integer> productId, productPrice, productStock;
-    public TableColumn<Product, String> productName;
+    public Label nameLabel;
+    public BorderPane bp;
+    public AnchorPane ap;
+    public TableColumn<Product, Integer> idColumn;
+    public TableColumn<Product, String> nameColumn;
+    public TableView<Product> leastStockedTable;
+    ObservableList<Product> leastStockedProducts;
 
-    public ArrayList<Product> products;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            products = ProductDao.getProducts();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        home.setVisible(true);
-        productPane.setVisible(false);
-        ordersPane.setVisible(false);
-        usernameLabel.setText("Hello, " + user.getName());
-        productTable.setEditable(true);
+        nameLabel.setText("Hello, " + user.getName());
+        getLeastStockedProducts();
+        setInitialTableValues();
+    }
+    void getLeastStockedProducts(){
+
+    }
+    void setInitialTableValues() {
+        leastStockedTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+        idColumn.setCellValueFactory(new PropertyValueFactory<Product, Integer>("id"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Product, String>("name"));
         setTableValues();
-
     }
-
     void setTableValues() {
-        productId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        productName.setCellValueFactory(new PropertyValueFactory<Product, String>("name"));
-        productPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
-        productStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
-
-//        productId.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-        productPrice.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-        productStock.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-        productName.setCellFactory(TextFieldTableCell.forTableColumn());
-        for (Product p:products) {
-            productTable.getItems().add(p);
-        }
-
+        leastStockedProducts = ProductDao.getLeastStockedProducts();
+        leastStockedTable.setItems(leastStockedProducts);
     }
-    public void homeClick() {
-        home.setVisible(true);
-        productPane.setVisible(false);
-        ordersPane.setVisible(false);
+    public void homeClick(){
+        bp.setCenter(ap);
+        setTableValues();
     }
-    public void productClick() {
-        home.setVisible(false);
-        productPane.setVisible(true);
-        ordersPane.setVisible(false);
+    public void productClick(){
+        loadPage("product");
     }
     public void orderClick(){
-        home.setVisible(false);
-        productPane.setVisible(false);
-        ordersPane.setVisible(true);
+        loadPage("order");
     }
-    public void editName(TableColumn.CellEditEvent<Product, String> event){
-        String newName = event.getNewValue();
-        Product product = productTable.getSelectionModel().getSelectedItem();
-        product.setName(newName);
-        ProductDao.updateProduct(product);
-    }
-    public void editPrice(TableColumn.CellEditEvent<Product, Integer> event){
-        int price = event.getNewValue();
-        Product product = productTable.getSelectionModel().getSelectedItem();
-        product.setPrice(price);
-        ProductDao.updateProduct(product);
-    }
-    public void editStock(TableColumn.CellEditEvent<Product, Integer> event){
-        int stock = event.getNewValue();
-        Product product = productTable.getSelectionModel().getSelectedItem();
-        product.setStock(stock);
-        ProductDao.updateProduct(product);
-    }
-    public void deleteSelectedProduct(){
-        Product product = productTable.getSelectionModel().getSelectedItem();
+    public void logoutClick(ActionEvent event) throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Logout");
+        Optional <ButtonType> res =  alert.showAndWait();
+        ButtonType button = res.orElse(ButtonType.CANCEL);
+        if(button == ButtonType.OK){
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), ScreenUtils.width, ScreenUtils.height);
+            Stage root = (Stage)((Node) event.getSource()).getScene().getWindow();
+            root.setScene(scene);
+        }else{
+            alert.close();
+        }
 
+    }
+
+    void loadPage(String page){
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(page + ".fxml")));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        bp.setCenter(root);
     }
 }

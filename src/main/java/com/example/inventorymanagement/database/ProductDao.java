@@ -2,6 +2,9 @@ package com.example.inventorymanagement.database;
 
 import com.example.inventorymanagement.models.Product;
 import com.example.inventorymanagement.utils.StringUtils;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -23,8 +26,8 @@ public class ProductDao {
         }
         return res;
     }
-    public static ArrayList<Product> getProducts() throws SQLException {
-        ArrayList<Product> temp = new ArrayList<>();
+    public static ObservableList<Product> getProducts() throws SQLException {
+        ObservableList<Product> temp = FXCollections.observableArrayList();
         DbConnection dbConnection = new DbConnection();
         Connection connection = dbConnection.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(StringUtils.selectProductQuery);
@@ -62,6 +65,25 @@ public class ProductDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static ObservableList<Product> getLeastStockedProducts(){
+        ObservableList<Product> temp = FXCollections.observableArrayList();
+        DbConnection dbConnection = new DbConnection();
+        Connection connection = dbConnection.getConnection();
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(StringUtils.getLeastProductQuery);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                Product newProduct = new Product(rs);
+                temp.add(newProduct);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return  temp;
     }
 
 }

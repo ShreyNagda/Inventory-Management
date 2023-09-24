@@ -17,13 +17,16 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Scene scene = null;
-        //Stage design
         stage.setResizable(false);
         stage.setTitle(StringUtils.title);
         stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream("Images/logo.png"))));
-
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("login.fxml"));
-        scene = new Scene(fxmlLoader.load(), ScreenUtils.width, ScreenUtils.height);
+        if(user == null){
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("login.fxml"));
+            scene = new Scene(fxmlLoader.load(), ScreenUtils.width, ScreenUtils.height);
+        }else{
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("home.fxml"));
+            scene = new Scene(fxmlLoader.load(), ScreenUtils.width, ScreenUtils.height);
+        }
         stage.setScene(scene);
         stage.show();
     }

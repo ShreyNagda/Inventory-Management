@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #252525;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.inventorymanagement.ProductPageController">
+   <children>
+      <TableView fx:id="productsTable" editable="true" prefHeight="340.0" prefWidth="380.0" styleClass="rounded" stylesheets="@Styles/global.css" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="idColumn" maxWidth="75.0" minWidth="54.666656494140625" prefWidth="50.0" text="Id" />
+          <TableColumn fx:id="nameColumn" onEditCommit="#editName" prefWidth="186.66668701171875" text="Name" />
+            <TableColumn fx:id="priceColumn" maxWidth="111.3333740234375" minWidth="70.0" onEditCommit="#editPrice" prefWidth="70.0" text="Price" />
+            <TableColumn fx:id="stockColumn" maxWidth="98.3333740234375" minWidth="58.0" onEditCommit="#editStock" prefWidth="65.0" text="Stock" />
+        </columns>
+      </TableView>
+      <Button fx:id="addProductBtn" layoutX="14.0" layoutY="356.0" minHeight="30.0" mnemonicParsing="false" onAction="#addProduct" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #50c878;" text="Add Product" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="deleteProductBtn" layoutX="236.0" layoutY="355.0" minHeight="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #eb6565;" text="Delete Product" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="15.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</AnchorPane>
