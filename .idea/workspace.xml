@@ -9,19 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9229fc7e-b39b-48ea-8874-feb17acf8f60" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/AddProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/AddProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/ProductPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/ProductPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/database/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/database/DbConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/database/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/database/ProductDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/database/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/database/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/utils/ScreenUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/utils/ScreenUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/inventorymanagement/add_product.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/inventorymanagement/add_product.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/inventorymanagement/product.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/inventorymanagement/product.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="9229fc7e-b39b-48ea-8874-feb17acf8f60" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
