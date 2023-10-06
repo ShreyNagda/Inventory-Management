@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -79,12 +80,16 @@ public class ProductPageController implements Initializable {
         Stage stage1 = new Stage();
         stage1.setResizable(false);
         stage1.initStyle(stage.getStyle());
-        Scene scene = new Scene(new FXMLLoader(getClass().getResource("add_product.fxml")).load(), ScreenUtils.width, ScreenUtils.height);
+        Scene scene = new Scene(new FXMLLoader(getClass().getResource("add_product.fxml")).load());
         stage1.initStyle(StageStyle.UNDECORATED);
         stage1.setScene(scene);
-        stage1.show();
+        stage1.showAndWait();
+        setTableValues();
     }
     public void deleteProduct(){
-        System.out.println("Delete Product");
+        Product product = productsTable.getSelectionModel().getSelectedItem();
+        ProductDao.deleteProduct(product);
+        ScreenUtils.showAlertDialog(Alert.AlertType.INFORMATION, "Successful!",product.getName() + " deleted successful");
+        setTableValues();
     }
 }

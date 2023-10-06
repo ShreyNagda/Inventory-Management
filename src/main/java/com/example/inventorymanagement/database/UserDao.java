@@ -1,7 +1,9 @@
 package com.example.inventorymanagement.database;
 
 import com.example.inventorymanagement.models.User;
+import com.example.inventorymanagement.utils.ScreenUtils;
 import com.example.inventorymanagement.utils.StringUtils;
+import javafx.scene.control.Alert;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,7 +23,7 @@ public class UserDao {
                 return new User(rs);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", e.getMessage());
         }
         return null;
     }

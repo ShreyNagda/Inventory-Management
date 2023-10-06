@@ -1,6 +1,8 @@
 package com.example.inventorymanagement.database;
 
+import com.example.inventorymanagement.utils.ScreenUtils;
 import com.example.inventorymanagement.utils.StringUtils;
+import javafx.scene.control.Alert;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,10 +13,9 @@ public class DbConnection {
 
     public Connection getConnection() {
         try{
-            System.out.println("URL -> " + StringUtils.dbUrl+"/"+StringUtils.dbName);
             connectionLink = DriverManager.getConnection(StringUtils.dbUrl+"/"+StringUtils.dbName, StringUtils.dbUser, StringUtils.dbPassword);
         }catch (SQLException e){
-            e.printStackTrace();
+            ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", e.getMessage());
         }
         return connectionLink;
     }

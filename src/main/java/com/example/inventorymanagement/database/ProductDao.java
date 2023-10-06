@@ -1,10 +1,12 @@
 package com.example.inventorymanagement.database;
 
 import com.example.inventorymanagement.models.Product;
+import com.example.inventorymanagement.utils.ScreenUtils;
 import com.example.inventorymanagement.utils.StringUtils;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -22,7 +24,7 @@ public class ProductDao {
             preparedStatement.setInt(4, product.getStock());
             res = preparedStatement.execute();
         }catch(SQLException e){
-            e.printStackTrace();
+            ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", e.getMessage());
         }
         return res;
     }
@@ -51,7 +53,7 @@ public class ProductDao {
             preparedStatement.setInt(4, product.getId());
             preparedStatement.execute();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", e.getMessage());
         }
     }
 
@@ -63,7 +65,7 @@ public class ProductDao {
             preparedStatement.setInt(1, product.getId());
             preparedStatement.execute();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", e.getMessage());
         }
     }
 
@@ -80,9 +82,8 @@ public class ProductDao {
                 temp.add(newProduct);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", e.getMessage());
         }
-
         return  temp;
     }
 
