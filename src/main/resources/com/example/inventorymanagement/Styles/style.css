@@ -1,0 +1,7 @@
+.rounded{
+    -fx-background-radius: 10px;
+}
+.rounded-left{
+    -fx-border-radius: 0px, 0px, 0px, 10px;
+    -fx-background-radius: 0px, 0px, 0px, 10px;
+}

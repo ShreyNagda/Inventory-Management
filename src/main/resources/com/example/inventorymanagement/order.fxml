@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.inventorymanagement.OrderPageController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #252525;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.inventorymanagement.OrderPageController">
+   <children>
+      <TableView prefHeight="340.0" prefWidth="380.0" styleClass="rounded" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="idColumn" prefWidth="29.33334445953369" text="Id" />
+          <TableColumn fx:id="cNameColumn" prefWidth="71.66668319702148" text="Customer" />
+            <TableColumn fx:id="pIdColumn" prefWidth="68.66669464111328" text="Product Id" />
+            <TableColumn fx:id="quantityColumn" prefWidth="62.666656494140625" text="Quantity" />
+            <TableColumn fx:id="amountColumn" prefWidth="55.66664123535156" text="Amount" />
+            <TableColumn fx:id="dateColumn" prefWidth="88.66665649414062" text="Delivery Date" />
+        </columns>
+      </TableView>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
 </AnchorPane>

@@ -57,6 +57,42 @@ public class ProductDao {
         }
     }
 
+    public static Product getProductById(int id) throws SQLException {
+        Product product = null;
+        DbConnection dbConnection = new DbConnection();
+        Connection connection = dbConnection.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(StringUtils.getProductByIdQuery);
+        preparedStatement.setInt(1, id);
+        ResultSet rs = preparedStatement.executeQuery();
+        while (rs.next()){
+            product = new Product(rs);
+        }
+        return product;
+    }
+
+    public static void updateProductStock(int id, int newStock) throws SQLException {
+        Product product = getProductById(id);
+        product.setStock(newStock);
+        updateProduct(product);
+    }
+
+    public static int getProductStock(int id){
+        int stock = 0;
+        DbConnection dbConnection = new DbConnection();
+        Connection connection = dbConnection.getConnection();
+        try{
+            PreparedStatement preparedStatement = connection.prepareStatement(StringUtils.getProductStock);
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                stock = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return stock;
+    }
+
     public static void deleteProduct(Product product) {
         DbConnection dbConnection = new DbConnection();
         Connection connection = dbConnection.getConnection();

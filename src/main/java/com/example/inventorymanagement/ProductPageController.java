@@ -38,6 +38,7 @@ public class ProductPageController implements Initializable {
     }
 
     void setTableValues(){
+        productsTable.setEditable(App.user.getRole().equals("admin"));
         productsTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));

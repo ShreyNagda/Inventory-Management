@@ -9,7 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9229fc7e-b39b-48ea-8874-feb17acf8f60" name="Changes" comment="" />
+    <list default="true" id="9229fc7e-b39b-48ea-8874-feb17acf8f60" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/database/OrderDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/models/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/OrderPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/OrderPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/ProductPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/ProductPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/database/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/database/ProductDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/utils/StringUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/inventorymanagement/Styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/inventorymanagement/Styles/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/inventorymanagement/order.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/inventorymanagement/order.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,6 +53,7 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
