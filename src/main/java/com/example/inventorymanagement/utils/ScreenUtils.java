@@ -9,9 +9,9 @@ public class ScreenUtils {
     public static  final String primaryColor = "50c878";
 
     public static void showAlertDialog(Alert.AlertType type, String title, String message){
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
-        alert.setContentText(message);
-        alert.showAndWait();
+            Alert alert = new Alert(type);
+            alert.setTitle(title);
+            alert.setContentText(message);
+            alert.showAndWait();
     }
 }

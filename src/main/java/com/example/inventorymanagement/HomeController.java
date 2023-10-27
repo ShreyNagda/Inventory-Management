@@ -31,9 +31,16 @@ public class HomeController implements Initializable {
     public BorderPane bp;
     public AnchorPane ap;
     public TableColumn<Product, Integer> idColumn;
+    public TableColumn<Product, Integer> stockColumn;
     public TableColumn<Product, String> nameColumn;
     public TableView<Product> leastStockedTable;
     ObservableList<Product> leastStockedProducts;
+
+    public TableColumn<Product, Integer> idColumn2;
+    public TableColumn<Product, Integer> stockColumn2;
+    public TableColumn<Product, String> nameColumn2;
+    public TableView<Product> mostStockedTable;
+    ObservableList<Product> mostStockedProducts;
 
 
     @Override
@@ -48,12 +55,20 @@ public class HomeController implements Initializable {
     void setInitialTableValues() {
         leastStockedTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
         idColumn.setCellValueFactory(new PropertyValueFactory<Product, Integer>("id"));
+        stockColumn.setCellValueFactory(new PropertyValueFactory<Product, Integer>("stock"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<Product, String>("name"));
+
+        mostStockedTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+        idColumn2.setCellValueFactory(new PropertyValueFactory<Product, Integer>("id"));
+        stockColumn2.setCellValueFactory(new PropertyValueFactory<Product, Integer>("stock"));
+        nameColumn2.setCellValueFactory(new PropertyValueFactory<Product, String>("name"));
         setTableValues();
     }
     void setTableValues() {
         leastStockedProducts = ProductDao.getLeastStockedProducts();
+        mostStockedProducts = ProductDao.getMaxStockedProducts();
         leastStockedTable.setItems(leastStockedProducts);
+        mostStockedTable.setItems(mostStockedProducts);
     }
     public void homeClick(){
         bp.setCenter(ap);

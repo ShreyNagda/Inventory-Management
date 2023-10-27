@@ -93,16 +93,21 @@ public class ProductDao {
         return stock;
     }
 
-    public static void deleteProduct(Product product) {
+    public static boolean deleteProduct(Product product) {
         DbConnection dbConnection = new DbConnection();
         Connection connection = dbConnection.getConnection();
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(StringUtils.deleteProductQuery);
             preparedStatement.setInt(1, product.getId());
-            preparedStatement.execute();
+            int res = preparedStatement.executeUpdate();
+            if(res == 0){
+                return false;
+            }
         } catch (SQLException e) {
             ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", e.getMessage());
+            return false;
         }
+        return true;
     }
 
     public static ObservableList<Product> getLeastStockedProducts(){
@@ -112,6 +117,24 @@ public class ProductDao {
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement(StringUtils.getLeastProductQuery);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                Product newProduct = new Product(rs);
+                temp.add(newProduct);
+            }
+        } catch (SQLException e) {
+            ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", e.getMessage());
+        }
+        return  temp;
+    }
+
+    public static ObservableList<Product> getMaxStockedProducts(){
+        ObservableList<Product> temp = FXCollections.observableArrayList();
+        DbConnection dbConnection = new DbConnection();
+        Connection connection = dbConnection.getConnection();
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = connection.prepareStatement(StringUtils.getMaxProductQuery);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()){
                 Product newProduct = new Product(rs);

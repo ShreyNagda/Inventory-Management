@@ -18,6 +18,7 @@ public class StringUtils {
     public static final String updateProductQuery = "UPDATE products SET name=?,price=?,stock=? WHERE id=?";
     public static final String deleteProductQuery = "DELETE FROM products WHERE id=?;";
     public static final String getLeastProductQuery = "SELECT * FROM products WHERE stock <= 10;";
+    public static final String getMaxProductQuery = "SELECT * FROM products WHERE stock >= 100;";
 
     public static final String getProductByIdQuery = "select * from products where id=?;";
     public static final String createOrderQuery = "INSERT INTO orders VALUES(?, ?, ?, ?, ?, ?);";

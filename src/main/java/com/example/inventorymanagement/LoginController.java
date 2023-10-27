@@ -51,7 +51,7 @@ public class LoginController {
         }else if(passField.getText().isEmpty()){
             errorLabel.setText("Enter password!");
         }else{
-            App.user =  UserDao.loginUser(usrField.getText(), passField.getText());
+             App.user =  UserDao.loginUser(usrField.getText(), passField.getText());
             if(App.user != null){
                 System.out.println(App.user.getUsername());
                 errorLabel.setTextFill(Color.WHITE);

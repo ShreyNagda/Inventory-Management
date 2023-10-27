@@ -55,17 +55,39 @@
    <center>
       <AnchorPane fx:id="ap" prefHeight="400.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="212.0" prefWidth="200.0" style="-fx-background-color: #eb6565;" styleClass="rounded-left" stylesheets="@Styles/global.css" AnchorPane.rightAnchor="0.0">
+            <AnchorPane maxWidth="180.0" prefHeight="212.0" prefWidth="180.0" style="-fx-background-color: #50c878;" styleClass="rounded-left" stylesheets="@Styles/global.css" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <TableView fx:id="leastStockedTable" prefHeight="151.0" prefWidth="140.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
+                  <TableView fx:id="mostStockedTable" layoutX="33.0" prefHeight="152.0" prefWidth="180.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="30.0">
+                     <columns>
+                        <TableColumn fx:id="idColumn2" prefWidth="37.333372712135315" text="Id" />
+                        <TableColumn fx:id="nameColumn2" maxWidth="104.99996948242188" prefWidth="76.66668701171875" text="Name" />
+                        <TableColumn fx:id="stockColumn2" prefWidth="64.0" text="Stock" />
+                     </columns>
+                  </TableView>
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="177.0" text="Stock more than 100" textFill="WHITE" AnchorPane.rightAnchor="0.0" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </AnchorPane>
+            <AnchorPane maxWidth="180.0" prefHeight="212.0" prefWidth="180.0" style="-fx-background-color: #eb6565;" styleClass="rounded-left" stylesheets="@Styles/global.css" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <TableView fx:id="leastStockedTable" prefHeight="152.0" prefWidth="174.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
                     <columns>
                       <TableColumn fx:id="idColumn" prefWidth="37.333372712135315" text="Id" />
-                      <TableColumn fx:id="nameColumn" maxWidth="100.0" prefWidth="100.0" text="Name" />
+                      <TableColumn fx:id="nameColumn" maxWidth="104.99996948242188" prefWidth="72.33334350585938" text="Name" />
+                        <TableColumn fx:id="stockColumn" prefWidth="61.66668701171875" text="Stock" />
                     </columns>
                   </TableView>
-                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="141.0" text="Stock less than 10" textFill="WHITE" AnchorPane.rightAnchor="30.0" />
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="177.0" text="Stock less than 10" textFill="WHITE" AnchorPane.rightAnchor="0.0" />
                </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
             </AnchorPane>
-         </children></AnchorPane>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding></AnchorPane>
    </center>
 </BorderPane>

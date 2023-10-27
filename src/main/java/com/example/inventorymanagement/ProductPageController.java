@@ -89,8 +89,9 @@ public class ProductPageController implements Initializable {
     }
     public void deleteProduct(){
         Product product = productsTable.getSelectionModel().getSelectedItem();
-        ProductDao.deleteProduct(product);
-        ScreenUtils.showAlertDialog(Alert.AlertType.INFORMATION, "Successful!",product.getName() + " deleted successful");
+        if(product == null) return;
+        boolean res = ProductDao.deleteProduct(product);
+        if(res) ScreenUtils.showAlertDialog(Alert.AlertType.INFORMATION, "Successful!",product.getName() + " deleted successful");
         setTableValues();
     }
 }
