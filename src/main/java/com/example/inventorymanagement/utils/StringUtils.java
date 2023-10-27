@@ -20,10 +20,10 @@ public class StringUtils {
     public static final String getLeastProductQuery = "SELECT * FROM products WHERE stock <= 10;";
 
     public static final String getProductByIdQuery = "select * from products where id=?;";
-    public static final String createOrderQuery = "INSERT INTO orders VALUES(?, ?, ?, ?, ?);";
+    public static final String createOrderQuery = "INSERT INTO orders VALUES(?, ?, ?, ?, ?, ?);";
     public static final String selectOrderQuery = "SELECT * FROM orders;";
     public static final String deleteOrderQuery = "DELETE FROM orders WHERE id=?;";
 
-
+    public static final String getOrderQuery = "select o.id, o.cName, o.pId, o.quantity, p.price, o.quantity*p.price as amount, o.delivery_date from orders o JOIN products p on o.pId=p.id;";
 
 }

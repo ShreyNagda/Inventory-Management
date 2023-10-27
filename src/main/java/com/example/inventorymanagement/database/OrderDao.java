@@ -1,8 +1,6 @@
 package com.example.inventorymanagement.database;
 
 import com.example.inventorymanagement.models.Order;
-import com.example.inventorymanagement.models.Order;
-import com.example.inventorymanagement.models.Order;
 import com.example.inventorymanagement.utils.ScreenUtils;
 import com.example.inventorymanagement.utils.StringUtils;
 import javafx.collections.FXCollections;
@@ -16,7 +14,7 @@ import java.sql.SQLException;
 
 public class OrderDao {
     public static boolean addOrder(Order order){
-        int stock = ProductDao.getProductStock(order.getpId());
+        int stock = ProductDao.getProductStock(order.getPid());
         boolean res = false;
         DbConnection dbConnection = new DbConnection();
         Connection connection = dbConnection.getConnection();
@@ -26,12 +24,13 @@ public class OrderDao {
             }
             PreparedStatement preparedStatement = connection.prepareStatement(StringUtils.createOrderQuery);
             preparedStatement.setInt(1, order.getId());
-            preparedStatement.setString(2, order.getcName());
-            preparedStatement.setInt(3, order.getpId());
+            preparedStatement.setString(2, order.getName());
+            preparedStatement.setInt(3, order.getPid());
             preparedStatement.setInt(4, order.getQuantity());
-            preparedStatement.setDate(5, order.getDeliveryDate());
+            preparedStatement.setInt(5, order.getAmount());
+            preparedStatement.setDate(6, order.getDeliveryDate());
             res = preparedStatement.execute();
-            ProductDao.updateProductStock(order.getpId(), stock-order.getQuantity());
+            ProductDao.updateProductStock(order.getPid(), stock-order.getQuantity());
         } catch (Exception e) {
             ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", e.getMessage());
         }
@@ -41,7 +40,7 @@ public class OrderDao {
         ObservableList<Order> temp = FXCollections.observableArrayList();
         DbConnection dbConnection = new DbConnection();
         Connection connection = dbConnection.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(StringUtils.selectOrderQuery);
+        PreparedStatement preparedStatement = connection.prepareStatement(StringUtils.getOrderQuery);
         ResultSet rs = preparedStatement.executeQuery();
         while (rs.next()){
             Order newOrder = new Order(rs);
@@ -51,12 +50,14 @@ public class OrderDao {
     }
 
     public static void deleteOrder(Order order) {
+        int stock = ProductDao.getProductStock(order.getPid());
         DbConnection dbConnection = new DbConnection();
         Connection connection = dbConnection.getConnection();
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(StringUtils.deleteOrderQuery);
             preparedStatement.setInt(1, order.getId());
             preparedStatement.execute();
+            ProductDao.updateProductStock(order.getPid(), stock+order.getQuantity());
         } catch (SQLException e) {
             ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", e.getMessage());
         }

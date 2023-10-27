@@ -13,7 +13,7 @@
             <Font name="Berlin Sans FB" size="15.0" />
          </font>
       </Label>
-      <VBox layoutX="20.0" layoutY="72.0" prefHeight="317.0" prefWidth="337.0" style="-fx-background-color: white; -fx-opacity: 70;" styleClass="rounded" stylesheets="@Styles/global.css" AnchorPane.topAnchor="60.0">
+      <VBox layoutX="20.0" layoutY="72.0" prefHeight="317.0" prefWidth="360.0" style="-fx-background-color: white; -fx-opacity: 70;" styleClass="rounded" stylesheets="@Styles/global.css" AnchorPane.topAnchor="60.0">
          <children>
             <Label text="Product Id" />
             <TextField fx:id="idField" promptText="Enter product id" />

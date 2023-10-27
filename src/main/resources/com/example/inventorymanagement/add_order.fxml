@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #252525;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.inventorymanagement.AddOrderController">
+   <children>
+      <Button layoutX="334.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeWindow" text="X" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+      <Label layoutX="21.0" layoutY="24.0" prefHeight="25.0" prefWidth="150.0" text="Add New Order" textFill="WHITE" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font name="Berlin Sans FB" size="15.0" />
+         </font></Label>
+      <VBox fx:id="closeWindow" layoutX="20.0" layoutY="61.0" prefHeight="317.0" prefWidth="360.0" style="-fx-background-color: white;" styleClass="rounded" stylesheets="@Styles/global.css" AnchorPane.topAnchor="60.0">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <children>
+            <Label text="Customer Name" />
+            <TextField fx:id="cNameField" promptText="Enter customer name" />
+            <Label text="Product">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <ComboBox fx:id="cBoxProducts" prefWidth="150.0" promptText="Select Product" />
+            <Label text="Product Quantity">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="quantityField" promptText="Enter product quantity" />
+            <Label text="Delivery Date">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <DatePicker fx:id="datePicker" promptText="Selecct Delivery Date" />
+            <Button mnemonicParsing="false" onAction="#addOrder" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #50c878;" text="Add Order">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Button>
+         </children></VBox>
+   </children>
+</AnchorPane>

@@ -7,24 +7,28 @@ import java.sql.Date;
 public class Order {
 
     private int id;
-    private String cName;
-    private int pId;
+    private String name;
+    private int pid;
+    private int price;
     private int quantity;
+    private int amount;
     private Date deliveryDate;
 
-    public Order(int id, String cName, int pId, int quantity, Date deliveryDate) {
-        this.id = id;
-        this.cName = cName;
-        this.pId = pId;
+
+    public Order(String cName, int pId, int quantity, Date deliveryDate) {
+        this.name = cName;
+        this.pid = pId;
         this.quantity = quantity;
         this.deliveryDate = deliveryDate;
     }
     public Order(ResultSet resultSet) throws SQLException {
         this.id = resultSet.getInt("id");
-        this.cName = resultSet.getString("cName");
-        this.pId = resultSet.getInt("pId");
+        this.name = resultSet.getString("cName");
+        this.pid = resultSet.getInt("pId");
+        this.price = resultSet.getInt("price");
         this.quantity = resultSet.getInt("quantity");
         this.deliveryDate = resultSet.getDate("delivery_date");
+        this.amount = resultSet.getInt("amount");
     }
 
     public int getId() {
@@ -35,20 +39,20 @@ public class Order {
         this.id = id;
     }
 
-    public String getcName() {
-        return cName;
+    public String getName() {
+        return name;
     }
 
-    public void setcName(String cName) {
-        this.cName = cName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getpId() {
-        return pId;
+    public int getPid() {
+        return pid;
     }
 
-    public void setpId(int pId) {
-        this.pId = pId;
+    public void setPid(int pid) {
+        this.pid = pid;
     }
     public int getQuantity() {
         return quantity;
@@ -66,4 +70,11 @@ public class Order {
         this.deliveryDate = deliveryDate;
     }
 
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 }
