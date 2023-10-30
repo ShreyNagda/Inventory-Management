@@ -5,6 +5,7 @@ import com.example.inventorymanagement.models.Product;
 import com.example.inventorymanagement.utils.ScreenUtils;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,6 +16,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,8 +30,10 @@ import static com.example.inventorymanagement.App.user;
 
 public class HomeController implements Initializable {
     public Label nameLabel;
+    public Button btnAddUser;
     public BorderPane bp;
     public AnchorPane ap;
+    public VBox vBox;
     public TableColumn<Product, Integer> idColumn;
     public TableColumn<Product, Integer> stockColumn;
     public TableColumn<Product, String> nameColumn;
@@ -46,11 +50,15 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         nameLabel.setText("Hello, " + user.getName());
-        getLeastStockedProducts();
+        if(Objects.equals(user.getRole().toLowerCase(), "admin")){
+            Button btn = new Button("Users");
+            btn.setPrefWidth(180);
+            btn.setOnAction(event -> userClick());
+            Node node = vBox.getChildren().get(vBox.getChildren().size()-1);
+            vBox.getChildren().remove(vBox.getChildren().size()-1);
+            vBox.getChildren().addAll(btn, node);
+        }
         setInitialTableValues();
-    }
-    void getLeastStockedProducts(){
-
     }
     void setInitialTableValues() {
         leastStockedTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
@@ -92,7 +100,10 @@ public class HomeController implements Initializable {
         }else{
             alert.close();
         }
+    }
 
+    public void userClick(){
+        loadPage("user");
     }
 
     void loadPage(String page){

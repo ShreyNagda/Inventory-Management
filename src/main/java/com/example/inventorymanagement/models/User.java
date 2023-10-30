@@ -4,10 +4,27 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class User {
-    private final String name;
-    private final String username;
-    private final String password;
-    private final String role;
+    private  String name;
+    private  String username;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    private  String password;
+    private  String role;
 
     public User(String name, String username, String password, String role){
         this.name = name;
