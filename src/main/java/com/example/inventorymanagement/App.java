@@ -11,12 +11,14 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Objects;
 
 public class App extends Application {
     static User user = null;
     @Override
     public void start(Stage stage) throws Exception {
+        initialConnection();
         Scene scene = null;
         stage.setResizable(false);
         stage.setTitle(StringUtils.title);
@@ -28,14 +30,18 @@ public class App extends Application {
             FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("home.fxml"));
             scene = new Scene(fxmlLoader.load(), ScreenUtils.width, ScreenUtils.height);
         }
-        DbConnection dbConnection = new DbConnection();
-        dbConnection.initDatabase(new File("lib/sql_dump.sql"));
         stage.setScene(scene);
         stage.show();
     }
 
-    public static void main(String[] args) {
+    void initialConnection(){
+        DbConnection dbConnection = new DbConnection();
+        if(dbConnection.getConnection() == null) {
+            dbConnection.initDatabase(new File("lib/sql_dump.sql"));
+        }
+    }
 
+    public static void main(String[] args) {
         launch();
     }
 }

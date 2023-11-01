@@ -25,8 +25,8 @@ public class LoginController {
     private Label errorLabel;
     @FXML
     private void onKeyPressed(KeyEvent event){
-        errorLabel.setText("");
         if(event.getCode() == KeyCode.ENTER){
+            errorLabel.setText("");
             System.out.println("Enter key pressed");
             if(event.getSource() == usrField){
                 passField.requestFocus();

@@ -18,7 +18,7 @@ public class DbConnection {
 
     public Connection getConnection() {
         try{
-            connectionLink = DriverManager.getConnection(StringUtils.dbUrl+"/"+StringUtils.dbName, StringUtils.dbUser, StringUtils.dbPassword);
+            connectionLink = DriverManager.getConnection(StringUtils.dbUrl + "/" + StringUtils.dbName, StringUtils.dbUser, StringUtils.dbPassword);
         }catch (SQLException e){
             ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", e.getMessage());
         }

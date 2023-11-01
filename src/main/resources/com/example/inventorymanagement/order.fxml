@@ -3,10 +3,11 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #252525;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.inventorymanagement.OrderPageController">
    <children>
-      <TableView fx:id="ordersTable" prefHeight="340.0" prefWidth="380.0" styleClass="rounded" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="ordersTable" prefHeight="290.0" prefWidth="380.0" styleClass="rounded" stylesheets="@Styles/global.css" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="40.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="29.33334445953369" text="Id" />
           <TableColumn fx:id="cNameColumn" prefWidth="71.66668319702148" text="Customer" />
@@ -16,9 +17,14 @@
             <TableColumn fx:id="dateColumn" prefWidth="88.66665649414062" text="Delivery Date" />
         </columns>
       </TableView>
-       <Button fx:id="addProductBtn" layoutX="14.0" layoutY="356.0" minHeight="30.0" mnemonicParsing="false" onAction="#addOrder" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #50c878;" text="Add Order" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0"></Button>
+       <Button fx:id="addProductBtn" layoutX="14.0" layoutY="356.0" minHeight="30.0" mnemonicParsing="false" onAction="#addOrder" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #50c878;" text="Add Order" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" />
        <Button fx:id="deleteProductBtn" layoutX="236.0" layoutY="355.0" minHeight="30.0" mnemonicParsing="false" onAction="#deleteProduct" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #eb6565;" text="Delete Order" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="15.0">
        </Button>
+      <Label alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="30.0" text="Orders" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
