@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -40,6 +41,7 @@ public class UserController implements Initializable {
         roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
 
         nameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        usernameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         passwordColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         roleColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
@@ -66,27 +68,42 @@ public class UserController implements Initializable {
         String newName = event.getNewValue();
         User user = usersTable.getSelectionModel().getSelectedItem();
         user.setName(newName);
-        UserDao.updateUser(user);
+        UserDao.updateUser(user, user.getUsername());
     }
 
     public void editPassword(TableColumn.CellEditEvent<User, String> event){
         String newPass = event.getNewValue();
         User user = usersTable.getSelectionModel().getSelectedItem();
         user.setPassword(newPass);
-        UserDao.updateUser(user);
+        UserDao.updateUser(user, user.getUsername());
     }
     public void editRole(TableColumn.CellEditEvent<User, String> event){
         String newRole = event.getNewValue();
         User user = usersTable.getSelectionModel().getSelectedItem();
         user.setRole(newRole);
-        UserDao.updateUser(user);
+        UserDao.updateUser(user, user.getUsername());
+    }
+
+    public void editUserName(TableColumn.CellEditEvent<User, String> event){
+        String newUserName = event.getNewValue();
+        User user = usersTable.getSelectionModel().getSelectedItem();
+        String oldUserName = user.getUsername();
+        user.setUsername(newUserName);
+        UserDao.updateUser(user, oldUserName);
     }
 
     public void deleteUser(ActionEvent event){
         User user = usersTable.getSelectionModel().getSelectedItem();
-        if(user == null) return;
-        boolean res = UserDao.deleteUser(user);
-        if(res) ScreenUtils.showAlertDialog(Alert.AlertType.INFORMATION, "Successful!", user.getName() + " deleted successful");
-        setTableValues();
+        if(user == null){
+            ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", "Please select a user");
+            return;
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to delete user: " + user.getName() + "?");
+        alert.showAndWait();
+        if(alert.getResult() == ButtonType.OK){
+            boolean res = UserDao.deleteUser(user);
+            if(res) ScreenUtils.showAlertDialog(Alert.AlertType.INFORMATION, "Successful!", user.getName() + " deleted successful");
+            setTableValues();
+        }
     }
 }

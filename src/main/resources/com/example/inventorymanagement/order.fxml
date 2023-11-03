@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -17,9 +18,14 @@
             <TableColumn fx:id="dateColumn" prefWidth="88.66665649414062" text="Delivery Date" />
         </columns>
       </TableView>
-       <Button fx:id="addProductBtn" layoutX="14.0" layoutY="356.0" minHeight="30.0" mnemonicParsing="false" onAction="#addOrder" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #50c878;" text="Add Order" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" />
+       <Button fx:id="addProductBtn" layoutX="14.0" layoutY="356.0" minHeight="30.0" mnemonicParsing="false" onAction="#addOrder" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #50c878;" text="Add Order" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
        <Button fx:id="deleteProductBtn" layoutX="236.0" layoutY="355.0" minHeight="30.0" mnemonicParsing="false" onAction="#deleteProduct" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #eb6565;" text="Delete Order" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="15.0">
-       </Button>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Label alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="30.0" text="Orders" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <font>
             <Font size="20.0" />

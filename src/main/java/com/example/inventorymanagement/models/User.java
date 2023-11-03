@@ -7,21 +7,7 @@ public class User {
     private  String name;
     private  String username;
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 
     private  String password;
     private  String role;
@@ -38,6 +24,22 @@ public class User {
         this.username = rs.getString("username");
         this.password = rs.getString("password");
         this.role = rs.getString("role");
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getName() {

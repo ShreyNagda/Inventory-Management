@@ -10,13 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9229fc7e-b39b-48ea-8874-feb17acf8f60" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/InventoryManagement_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/InventoryManagement_jar/InventoryManagement.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/database/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/database/DbConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/inventorymanagement/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/inventorymanagement/home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/inventorymanagement/product.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/inventorymanagement/product.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/OrderPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/OrderPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/ProductPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/ProductPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/database/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/database/OrderDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/database/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/database/ProductDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/database/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/database/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/utils/StringUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/inventorymanagement/utils/StringUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/inventorymanagement/order.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/inventorymanagement/order.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/inventorymanagement/user.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/inventorymanagement/user.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,20 +60,20 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/shrey/IdeaProjects/Inventory-Management/src/main/java/com/example/inventorymanagement&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/shrey/IdeaProjects/Inventory-Management&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2908046&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_directory_selection": "C:/Users/shrey/IdeaProjects/Inventory-Management/src/main/java/com/example/inventorymanagement",
+    "last_opened_file_path": "C:/Users/shrey/IdeaProjects/Inventory-Management/lib",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2908046",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\shrey\IdeaProjects\InventoryManagement\lib" />

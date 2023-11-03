@@ -104,7 +104,10 @@ public class ProductDao {
                 return false;
             }
         } catch (SQLException e) {
-            ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", e.getMessage());
+            if(e.getErrorCode() == 1451){
+                ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", "Cannot delete product - Order containing this product exists");
+            }
+            else ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", e.getMessage());
             return false;
         }
         return true;

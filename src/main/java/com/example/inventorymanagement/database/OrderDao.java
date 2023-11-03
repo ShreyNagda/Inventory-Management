@@ -49,17 +49,20 @@ public class OrderDao {
         return temp;
     }
 
-    public static void deleteOrder(Order order) {
+    public static boolean deleteOrder(Order order) {
+        boolean res = false;
         int stock = ProductDao.getProductStock(order.getPid());
         DbConnection dbConnection = new DbConnection();
         Connection connection = dbConnection.getConnection();
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(StringUtils.deleteOrderQuery);
             preparedStatement.setInt(1, order.getId());
-            preparedStatement.execute();
+            res = preparedStatement.execute();
             ProductDao.updateProductStock(order.getPid(), stock+order.getQuantity());
+            return res;
         } catch (SQLException e) {
             ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", e.getMessage());
+            return false;
         }
     }
 }

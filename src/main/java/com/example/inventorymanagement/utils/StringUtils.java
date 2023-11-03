@@ -14,7 +14,7 @@ public class StringUtils {
     public static final String userLoginQuery = "SELECT * FROM users WHERE username=? AND password=?";
     public static final String createUserQuery = "INSERT INTO users VALUES(?,?,?,?);";
     public static final String getUsersQuery = "SELECT * FROM users;";
-    public static final String updateUserQuery = "UPDATE users SET name=?,password=?,role=? WHERE username=?";
+    public static final String updateUserQuery = "UPDATE users SET name=?,username=?,password=?,role=? WHERE username=?";
     public static final String deleteUserQuery = "DELETE FROM users WHERE username=?";
     public static final String createProductQuery = "INSERT INTO products VALUES(?, ?, ?, ?);";
     public static final String selectProductQuery = "SELECT * FROM products;";

@@ -63,15 +63,16 @@ public class UserDao {
         return temp;
     }
 
-    public static void updateUser(User user){
+    public static void updateUser(User user, String oldUserName){
         DbConnection dbConnection = new DbConnection();
         Connection connection = dbConnection.getConnection();
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(StringUtils.updateUserQuery);
             preparedStatement.setString(1, user.getName());
-            preparedStatement.setString(2, user.getPassword());
-            preparedStatement.setString(3, user.getRole());
-            preparedStatement.setString(4, user.getUsername());
+            preparedStatement.setString(2, user.getUsername());
+            preparedStatement.setString(3, user.getPassword());
+            preparedStatement.setString(4, user.getRole());
+            preparedStatement.setString(5, oldUserName);
             preparedStatement.execute();
         } catch (SQLException e) {
             ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", e.getMessage());

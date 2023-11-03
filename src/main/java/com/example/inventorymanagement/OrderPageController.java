@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -74,8 +75,16 @@ public class OrderPageController implements Initializable {
     }
     public void deleteProduct(){
         Order order = ordersTable.getSelectionModel().getSelectedItem();
-        OrderDao.deleteOrder(order);
-        ScreenUtils.showAlertDialog(Alert.AlertType.INFORMATION, "Successful!",order.getId() + " deleted successfully!");
-        setTableValues();
+        if(order == null){
+            ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", "Please select an order");
+            return;
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to delete order number " + order.getId() + "?");
+        alert.showAndWait();
+        if (alert.getResult() == ButtonType.OK) {
+            boolean res = OrderDao.deleteOrder(order);
+            if(res) ScreenUtils.showAlertDialog(Alert.AlertType.INFORMATION, "Successful!",order.getId() + " deleted successfully!");
+            setTableValues();
+        }
     }
 }

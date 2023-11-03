@@ -10,7 +10,7 @@
       <TableView fx:id="usersTable" layoutY="14.0" prefHeight="290.0" prefWidth="380.0" styleClass="rounded" stylesheets="@Styles/global.css" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="40.0">
         <columns>
           <TableColumn fx:id="nameColumn" onEditCommit="#editName" prefWidth="103.3333158493042" resizable="false" text="Name" />
-          <TableColumn fx:id="usernameColumn" prefWidth="99.99999237060547" resizable="false" text="Username" />
+          <TableColumn fx:id="usernameColumn" onEditCommit="#editUserName" prefWidth="99.99999237060547" resizable="false" text="Username" />
             <TableColumn fx:id="passwordColumn" onEditCommit="#editPassword" prefWidth="94.00001525878906" resizable="false" text="Password" />
             <TableColumn fx:id="roleColumn" onEditCommit="#editRole" prefWidth="78.0" resizable="false" text="Role" />
         </columns>

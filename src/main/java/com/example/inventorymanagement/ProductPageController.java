@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -87,11 +88,18 @@ public class ProductPageController implements Initializable {
         stage1.showAndWait();
         setTableValues();
     }
-    public void deleteProduct(){
+    public void deleteProduct() {
         Product product = productsTable.getSelectionModel().getSelectedItem();
-        if(product == null) return;
-        boolean res = ProductDao.deleteProduct(product);
-        if(res) ScreenUtils.showAlertDialog(Alert.AlertType.INFORMATION, "Successful!",product.getName() + " deleted successful");
-        setTableValues();
+        if(product == null){
+            ScreenUtils.showAlertDialog(Alert.AlertType.ERROR, "", "Please select a product");
+            return;
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Do you want to delete " + product.getName() + "?");
+        alert.showAndWait();
+        if (alert.getResult() == ButtonType.OK) {
+            boolean res = ProductDao.deleteProduct(product);
+            if(res) ScreenUtils.showAlertDialog(Alert.AlertType.INFORMATION, "Successful!",product.getName() + " deleted successful");
+            setTableValues();
+        }
     }
 }
